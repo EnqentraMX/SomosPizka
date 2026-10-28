@@ -89,6 +89,7 @@ input[type=range]{flex:1;min-width:180px;accent-color:var(--menta)}
 .barra img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .barra.sinimg .cuerpo{padding-top:16px;padding-right:48px;min-height:100%}
 .barra.sinimg{background:var(--superficie)}
+.barras{align-items:start}
 .barra .cuerpo{padding:12px 14px 14px;display:flex;flex-direction:column;gap:3px}
 .barra b{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.15}
 .barra small{color:var(--carbon-suave);font-size:13px}
@@ -107,6 +108,14 @@ input[type=range]{flex:1;min-width:180px;accent-color:var(--menta)}
 .chip em{font-style:normal;font-weight:400;color:var(--carbon-suave);font-size:12px}
 .chip[aria-pressed="true"]{background:var(--menta);border-color:var(--menta);color:var(--menta-tinta)}
 .chip[aria-pressed="true"] em{color:var(--menta-tinta)}
+.lim{display:inline-block;margin-left:6px;font-size:11px;letter-spacing:.04em;padding:2px 8px;border-radius:999px;background:var(--crema);border:1px solid var(--linea);color:var(--carbon-suave)}
+.lim.lleno{background:var(--menta-clara);border-color:var(--menta);color:var(--menta-profunda)}
+.lim.pasa{background:var(--durazno-claro);border-color:var(--durazno);color:var(--durazno-tinta)}
+.eligeTotal{font-size:14px;color:var(--carbon-suave);margin:4px 0 0}
+.eligeTotal.lleno b{color:var(--menta-profunda)}
+.incluye{font-size:14px;color:var(--carbon-suave);margin:14px 0 0;background:var(--crema);border-radius:var(--r-sm);padding:10px 12px}
+.incluye b{color:var(--carbon)}
+.aviso-lim{font-size:13px;margin-top:10px;background:var(--durazno-claro);color:var(--durazno-tinta);padding:8px 12px;border-radius:var(--r-sm)}
 .vacio{color:var(--carbon-suave);font-size:14px;background:var(--crema);border-radius:var(--r-sm);padding:14px}
 
 /* cotización */

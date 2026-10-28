@@ -80,20 +80,40 @@
   function invitados(n) {
     st.invitados = Math.max(min, Math.min(max, n));
     $("inv").textContent = st.invitados; $("rango").value = st.invitados;
+    if (N.barras.some((b) => Object.values(b.elige || {}).some(Array.isArray))) pintarTops();
     cotizar();
+  }
+
+  /* ---------- Modo sin precios: el negocio cotiza por WhatsApp ---------- */
+  const sinPrecios = N.barras.every((b) => b.precioPorPersona == null);
+
+  /* ---------- Límites de toppings ("elige 6") ----------
+     b.elige = { "Grupo": 6 }  o  { "Grupo": [[100, 3], [0, 2]] }  (según invitados)
+     b.eligeTotal = 15  -> cuenta todos los grupos que no tienen su propio límite */
+  function limiteGrupo(b, g) {
+    const v = (b.elige || {})[g];
+    if (v == null) return null;
+    if (Array.isArray(v)) { const r = v.find(([desde]) => st.invitados >= desde); return r ? r[1] : null; }
+    return v;
+  }
+  function grupoDe(b, t) { return Object.keys(b.toppings || {}).find((g) => b.toppings[g].some(([x]) => x === t)); }
+  function cuenta(b, sel, g) {
+    if (g === "__total") return [...sel].filter((t) => limiteGrupo(b, grupoDe(b, t)) == null).length;
+    return [...sel].filter((t) => grupoDe(b, t) === g).length;
   }
 
   /* ---------- Barras ---------- */
   const barra = (id) => N.barras.find((b) => b.id === id);
   function pintarBarras() {
-    $("barras").innerHTML = N.barras.map((b) =>
+    const orden = [...N.barras].sort((a, b) => (b.foto ? 1 : 0) - (a.foto ? 1 : 0));   // primero las que tienen foto
+    $("barras").innerHTML = orden.map((b) =>
       `<button class="barra${b.foto ? "" : " sinimg"}" data-barra="${esc(b.id)}" aria-pressed="${st.barras.has(b.id)}">
          ${b.foto ? `<img src="${esc(b.foto)}" alt="" loading="lazy">` : ""}
          <span class="check" aria-hidden="true">✓</span>
          <span class="cuerpo">
            <b>${esc(b.nombre)}</b>
            ${b.descripcion ? `<small>${esc(b.descripcion)}</small>` : ""}
-           <span class="precio num">${pesos(b.precioPorPersona)} por persona</span>
+           ${b.precioPorPersona != null ? `<span class="precio num">${pesos(b.precioPorPersona)} por persona</span>` : ""}
          </span>
        </button>`).join("");
   }
@@ -107,15 +127,21 @@
     }
     $("tops").innerHTML = elegidas.map((b) => {
       const sel = st.tops[b.id] || new Set();
-      const grupos = Object.entries(b.toppings || {}).map(([g, lista]) =>
-        `<div class="grp">${esc(g)}</div><div class="chips">${lista.map(([t, p]) =>
-          `<button class="chip" data-b="${esc(b.id)}" data-t="${esc(t)}" aria-pressed="${sel.has(t)}">${esc(t)}${p ? `<em>+${pesos(p)} p/p</em>` : ""}</button>`).join("")}</div>`).join("");
-      return `<div class="persona"><h3>${esc(b.nombre)}</h3>${b.nota ? `<p class="sub">${esc(b.nota)}</p>` : ""}${grupos || `<p class="vacio">Se arma al gusto el día del evento.</p>`}</div>`;
+      const grupos = Object.entries(b.toppings || {}).map(([g, lista]) => {
+        const lim = limiteGrupo(b, g), n = cuenta(b, sel, g);
+        const tag = lim != null ? `<span class="lim${n > lim ? " pasa" : n === lim ? " lleno" : ""}">${n} de ${lim}</span>` : "";
+        return `<div class="grp">${esc(g)}${lim != null ? ` · elige ${lim}` : ""} ${tag}</div><div class="chips">${lista.map(([t, p]) =>
+          `<button class="chip" data-b="${esc(b.id)}" data-t="${esc(t)}" aria-pressed="${sel.has(t)}">${esc(t)}${p ? `<em>+${pesos(p)} p/p</em>` : ""}</button>`).join("")}</div>`;
+      }).join("");
+      const tot = b.eligeTotal ? (() => { const n = cuenta(b, sel, "__total"); return `<p class="eligeTotal${n >= b.eligeTotal ? " lleno" : ""}">Elige hasta ${b.eligeTotal} opciones · llevas <b>${n}</b></p>`; })() : "";
+      const inc = b.incluye && b.incluye.length ? `<p class="incluye"><b>Ya incluye:</b> ${b.incluye.map(esc).join(", ")}</p>` : "";
+      return `<div class="persona" id="per-${esc(b.id)}"><h3>${esc(b.nombre)}</h3>${b.nota ? `<p class="sub">${esc(b.nota)}</p>` : ""}${tot}${grupos || `<p class="vacio">Se arma al gusto. Platícalo con el negocio por WhatsApp.</p>`}${inc}<p class="aviso-lim" hidden></p></div>`;
     }).join("");
   }
 
   /* ---------- Extras del evento ---------- */
   function pintarExtras() {
+    if (!(N.extras || []).length) { const sec = $("extras").closest("section"); if (sec) sec.hidden = true; return; }
     $("extras").innerHTML = `<div class="chips">${(N.extras || []).map(([t, p, tipo]) =>
       `<button class="chip" data-x="${esc(t)}" aria-pressed="${st.extras.has(t)}">${esc(t)}<em>+${pesos(p)}${tipo === "persona" ? " p/p" : ""}</em></button>`).join("")}</div>`;
   }
@@ -128,9 +154,9 @@
     N.barras.filter((b) => st.barras.has(b.id)).forEach((b) => {
       const sel = st.tops[b.id] || new Set();
       const extraPP = (Object.values(b.toppings || {}).flat()).filter(([t]) => sel.has(t)).reduce((s, [, p]) => s + (p || 0), 0);
-      const sub = (b.precioPorPersona + extraPP) * inv;
+      const sub = ((b.precioPorPersona || 0) + extraPP) * inv;
       total += sub;
-      filas.push([`${b.nombre} × ${inv}`, pesos(sub)]);
+      filas.push(sinPrecios ? [b.nombre, sel.size ? `${sel.size} topping${sel.size > 1 ? "s" : ""}` : "✓"] : [`${b.nombre} × ${inv}`, pesos(sub)]);
       detalle.push(`• ${b.nombre}${sel.size ? `: ${[...sel].join(", ")}` : ""}`);
     });
     (N.extras || []).filter(([t]) => st.extras.has(t)).forEach(([t, p, tipo]) => {
@@ -145,7 +171,12 @@
 
     const t = $("total"); t.textContent = pesos(total);
     if (total !== ultimo) { t.classList.remove("salto"); void t.offsetWidth; t.classList.add("salto"); ultimo = total; }
-    $("porPersona").textContent = total ? `${pesos(total / inv)} por invitado · anticipo ${Math.round((N.anticipo || 0) * 100)}%: ${pesos(total * (N.anticipo || 0))}` : "";
+    const anti = N.anticipo ? ` · anticipo ${Math.round(N.anticipo * 100)}%: ${pesos(total * N.anticipo)}` : "";
+    $("porPersona").textContent = total ? `${pesos(total / inv)} por invitado${anti}` : "";
+    if (sinPrecios) {
+      document.querySelector(".total").hidden = true;
+      $("porPersona").textContent = `${N.nombre} te confirma el precio y la disponibilidad por WhatsApp, sin compromiso.`;
+    }
     $("ejemplo").hidden = !N.preciosDeEjemplo;
 
     const falta = !st.fecha ? "Elige la fecha de tu evento." : !st.barras.size ? "Elige al menos una barra." : "";
@@ -158,12 +189,12 @@
       `👥 Invitados: ${inv}`,
       ...detalle,
       extrasTxt.length ? `➕ Extras: ${extrasTxt.join(", ")}` : null,
-      `💰 Total estimado: ${pesos(total)}`,
+      sinPrecios ? `¿Me pasan la cotización y disponibilidad? 🙏` : `💰 Total estimado: ${pesos(total)}`,
       ``, `(Cotizado en pizka.mx)`,
     ].filter((l) => l !== null).join("\n");
     const href = `https://wa.me/${N.whatsapp}?text=${encodeURIComponent(msg)}`;
     ["cta", "ctaMovil"].forEach((id) => { const a = $(id); a.href = href; a.setAttribute("aria-disabled", falta ? "true" : "false"); });
-    $("totalMovil").textContent = pesos(total);
+    $("totalMovil").textContent = sinPrecios ? "Cotiza gratis" : pesos(total);
     $("resumenMovil").textContent = falta || `${inv} invitados · ${st.barras.size} barra${st.barras.size > 1 ? "s" : ""}`;
   }
 
@@ -177,8 +208,20 @@
       b.setAttribute("aria-pressed", st.barras.has(d.barra)); pintarTops(); cotizar();
     }
     else if (d.t) {
-      const s = st.tops[d.b] || (st.tops[d.b] = new Set());
-      s.has(d.t) ? s.delete(d.t) : s.add(d.t); b.setAttribute("aria-pressed", s.has(d.t)); cotizar();
+      const s = st.tops[d.b] || (st.tops[d.b] = new Set()), br = barra(d.b);
+      if (s.has(d.t)) s.delete(d.t);
+      else {
+        const g = grupoDe(br, d.t), lim = limiteGrupo(br, g);
+        const lleno = lim != null ? cuenta(br, s, g) >= lim : (br.eligeTotal && cuenta(br, s, "__total") >= br.eligeTotal);
+        if (lleno) {
+          const av = document.querySelector(`#per-${CSS.escape(d.b)} .aviso-lim`);
+          av.textContent = lim != null ? `En "${g}" puedes elegir ${lim}. Quita uno para cambiarlo.` : `Puedes elegir hasta ${br.eligeTotal} opciones. Quita una para cambiarla.`;
+          av.hidden = false; clearTimeout(av._t); av._t = setTimeout(() => (av.hidden = true), 2600);
+          return;
+        }
+        s.add(d.t);
+      }
+      pintarTops(); cotizar();
     }
     else if (d.x) { st.extras.has(d.x) ? st.extras.delete(d.x) : st.extras.add(d.x); b.setAttribute("aria-pressed", st.extras.has(d.x)); cotizar(); }
     else if (d.foto) verFoto(+d.foto);
@@ -202,6 +245,11 @@
   {
     const fin = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0).getDate();
     if (fin - hoy.getDate() - (N.diasDeAnticipacion || 0) < 7) { st.m = (hoy.getMonth() + 1) % 12; if (st.m === 0) st.y++; }
+  }
+
+  if (sinPrecios) {
+    $("cta").textContent = "Pedir cotización por WhatsApp"; $("ctaMovil").textContent = "Cotizar";
+    const sub = $("barras").previousElementSibling; if (sub) sub.textContent = "Puedes combinar varias.";
   }
 
   /* Arranca con la primera barra elegida para que la cotización no salga vacía */
