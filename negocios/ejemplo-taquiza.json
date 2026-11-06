@@ -1,0 +1,343 @@
+{
+ "demo": true,
+ "preciosDeEjemplo": true,
+ "whatsapp": "529511836468",
+ "redes": {},
+ "fotos": [],
+ "logo": "",
+ "diasDeAnticipacion": 2,
+ "diasOcupados": [
+  "2026-11-14",
+  "2026-11-21",
+  "2026-11-28",
+  "2026-12-12",
+  "2026-12-19",
+  "2026-12-24",
+  "2026-12-31"
+ ],
+ "diasCasiLlenos": [
+  "2026-11-15",
+  "2026-12-05",
+  "2026-12-13"
+ ],
+ "diasQueNoTrabaja": [],
+ "nombre": "Taquizas El Fogón",
+ "giro": "taquiza",
+ "ciudad": "Taquizas para eventos · Ejemplo",
+ "color": "#B8461B",
+ "descripcion": "Guisados caseros, tortillas hechas a mano y salsas de molcajete para tus fiestas.",
+ "destacados": [
+  "Desde 40 personas",
+  "Tortillas hechas a mano",
+  "Servicio de taquero incluido"
+ ],
+ "minimoInvitados": 40,
+ "maximoInvitados": 600,
+ "invitadosIniciales": 80,
+ "anticipo": 0.5,
+ "trasladoYMontaje": 0,
+ "barras": [
+  {
+   "id": "clasica",
+   "nombre": "Taquiza Clásica",
+   "descripcion": "4 guisados, arroz, frijoles y 1 agua",
+   "precioPorPersona": 150,
+   "elige": {
+    "Guisados": 4,
+    "Aguas frescas": 1
+   },
+   "toppings": {
+    "Guisados": [
+     [
+      "Chicharrón en salsa verde",
+      0
+     ],
+     [
+      "Tinga de pollo",
+      0
+     ],
+     [
+      "Bistec a la mexicana",
+      0
+     ],
+     [
+      "Rajas con crema",
+      0
+     ],
+     [
+      "Mole verde",
+      0
+     ],
+     [
+      "Cochinita pibil",
+      0
+     ],
+     [
+      "Papas con chorizo",
+      0
+     ],
+     [
+      "Chile relleno",
+      0
+     ],
+     [
+      "Picadillo",
+      0
+     ],
+     [
+      "Costilla en salsa roja",
+      0
+     ],
+     [
+      "Champiñones al ajillo",
+      0
+     ],
+     [
+      "Barbacoa de res",
+      12
+     ]
+    ],
+    "Aguas frescas": [
+     [
+      "Jamaica",
+      0
+     ],
+     [
+      "Horchata",
+      0
+     ],
+     [
+      "Tamarindo",
+      0
+     ],
+     [
+      "Limón con chía",
+      0
+     ],
+     [
+      "Pepino",
+      0
+     ]
+    ]
+   },
+   "incluye": [
+    "tortillas hechas a mano",
+    "arroz",
+    "frijoles",
+    "salsa verde y roja",
+    "cebolla, cilantro y limón",
+    "platos y cubiertos"
+   ]
+  },
+  {
+   "id": "especial",
+   "nombre": "Taquiza Especial",
+   "descripcion": "6 guisados, arroz, frijoles charros y 2 aguas",
+   "precioPorPersona": 185,
+   "elige": {
+    "Guisados": 6,
+    "Aguas frescas": 2
+   },
+   "toppings": {
+    "Guisados": [
+     [
+      "Chicharrón en salsa verde",
+      0
+     ],
+     [
+      "Tinga de pollo",
+      0
+     ],
+     [
+      "Bistec a la mexicana",
+      0
+     ],
+     [
+      "Rajas con crema",
+      0
+     ],
+     [
+      "Mole verde",
+      0
+     ],
+     [
+      "Cochinita pibil",
+      0
+     ],
+     [
+      "Papas con chorizo",
+      0
+     ],
+     [
+      "Chile relleno",
+      0
+     ],
+     [
+      "Picadillo",
+      0
+     ],
+     [
+      "Costilla en salsa roja",
+      0
+     ],
+     [
+      "Champiñones al ajillo",
+      0
+     ],
+     [
+      "Barbacoa de res",
+      12
+     ]
+    ],
+    "Aguas frescas": [
+     [
+      "Jamaica",
+      0
+     ],
+     [
+      "Horchata",
+      0
+     ],
+     [
+      "Tamarindo",
+      0
+     ],
+     [
+      "Limón con chía",
+      0
+     ],
+     [
+      "Pepino",
+      0
+     ]
+    ]
+   },
+   "incluye": [
+    "tortillas hechas a mano",
+    "arroz",
+    "frijoles",
+    "salsa verde y roja",
+    "cebolla, cilantro y limón",
+    "platos y cubiertos"
+   ]
+  },
+  {
+   "id": "fiesta",
+   "nombre": "Taquiza Fiesta",
+   "descripcion": "8 guisados, consomé, postre y 3 aguas",
+   "precioPorPersona": 230,
+   "elige": {
+    "Guisados": 8,
+    "Aguas frescas": 3
+   },
+   "toppings": {
+    "Guisados": [
+     [
+      "Chicharrón en salsa verde",
+      0
+     ],
+     [
+      "Tinga de pollo",
+      0
+     ],
+     [
+      "Bistec a la mexicana",
+      0
+     ],
+     [
+      "Rajas con crema",
+      0
+     ],
+     [
+      "Mole verde",
+      0
+     ],
+     [
+      "Cochinita pibil",
+      0
+     ],
+     [
+      "Papas con chorizo",
+      0
+     ],
+     [
+      "Chile relleno",
+      0
+     ],
+     [
+      "Picadillo",
+      0
+     ],
+     [
+      "Costilla en salsa roja",
+      0
+     ],
+     [
+      "Champiñones al ajillo",
+      0
+     ],
+     [
+      "Barbacoa de res",
+      12
+     ]
+    ],
+    "Aguas frescas": [
+     [
+      "Jamaica",
+      0
+     ],
+     [
+      "Horchata",
+      0
+     ],
+     [
+      "Tamarindo",
+      0
+     ],
+     [
+      "Limón con chía",
+      0
+     ],
+     [
+      "Pepino",
+      0
+     ]
+    ]
+   },
+   "incluye": [
+    "tortillas hechas a mano",
+    "arroz",
+    "frijoles",
+    "salsa verde y roja",
+    "cebolla, cilantro y limón",
+    "platos y cubiertos"
+   ]
+  }
+ ],
+ "extras": [
+  [
+   "Quesadillas a mano",
+   15,
+   "persona"
+  ],
+  [
+   "Consomé de borrego",
+   25,
+   "persona"
+  ],
+  [
+   "Postre: arroz con leche",
+   18,
+   "persona"
+  ],
+  [
+   "Loza en lugar de desechable",
+   25,
+   "persona"
+  ],
+  [
+   "Taquero extra",
+   600
+  ]
+ ]
+}

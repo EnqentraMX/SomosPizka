@@ -1,0 +1,251 @@
+{
+ "demo": true,
+ "preciosDeEjemplo": true,
+ "whatsapp": "529511836468",
+ "redes": {},
+ "fotos": [],
+ "logo": "",
+ "diasDeAnticipacion": 2,
+ "diasOcupados": [
+  "2026-11-14",
+  "2026-11-21",
+  "2026-11-28",
+  "2026-12-12",
+  "2026-12-19",
+  "2026-12-24",
+  "2026-12-31"
+ ],
+ "diasCasiLlenos": [
+  "2026-11-15",
+  "2026-12-05",
+  "2026-12-13"
+ ],
+ "diasQueNoTrabaja": [],
+ "nombre": "Banquetes Jacarandas",
+ "giro": "banquete",
+ "ciudad": "Banquetes · Ejemplo",
+ "color": "#6B4E9E",
+ "descripcion": "Menús de tres y cuatro tiempos para bodas, XV años, bautizos y eventos de empresa, con meseros y mantelería.",
+ "destacados": [
+  "Desde 50 personas",
+  "Meseros y mantelería incluidos",
+  "Degustación previa"
+ ],
+ "minimoInvitados": 50,
+ "maximoInvitados": 500,
+ "invitadosIniciales": 100,
+ "anticipo": 0.3,
+ "trasladoYMontaje": 0,
+ "barras": [
+  {
+   "id": "tres",
+   "nombre": "Menú 3 tiempos",
+   "descripcion": "Entrada, plato fuerte y postre",
+   "precioPorPersona": 320,
+   "elige": {
+    "Entrada": 1,
+    "Plato fuerte": 1,
+    "Guarnición": 2,
+    "Postre": 1
+   },
+   "toppings": {
+    "Entrada": [
+     [
+      "Ensalada de manzana y nuez",
+      0
+     ],
+     [
+      "Crema de elote",
+      0
+     ],
+     [
+      "Sopa de tortilla",
+      0
+     ]
+    ],
+    "Plato fuerte": [
+     [
+      "Pechuga rellena en salsa de queso",
+      0
+     ],
+     [
+      "Lomo en salsa de ciruela",
+      0
+     ],
+     [
+      "Mole poblano",
+      0
+     ],
+     [
+      "Filete de pescado al ajillo",
+      0
+     ]
+    ],
+    "Guarnición": [
+     [
+      "Arroz a la mexicana",
+      0
+     ],
+     [
+      "Puré de papa",
+      0
+     ],
+     [
+      "Verduras al vapor",
+      0
+     ],
+     [
+      "Papas cambray",
+      0
+     ]
+    ],
+    "Postre": [
+     [
+      "Pay de queso",
+      0
+     ],
+     [
+      "Flan napolitano",
+      0
+     ],
+     [
+      "Pastel tres leches",
+      0
+     ]
+    ]
+   },
+   "incluye": [
+    "meseros",
+    "mantelería",
+    "loza y cristalería",
+    "refresco y agua natural",
+    "5 horas de servicio"
+   ]
+  },
+  {
+   "id": "cuatro",
+   "nombre": "Menú 4 tiempos",
+   "descripcion": "Crema, entrada, plato fuerte y postre",
+   "precioPorPersona": 410,
+   "elige": {
+    "Crema": 1,
+    "Entrada": 1,
+    "Plato fuerte": 1,
+    "Guarnición": 2,
+    "Postre": 1
+   },
+   "toppings": {
+    "Crema": [
+     [
+      "Crema de champiñones",
+      0
+     ],
+     [
+      "Crema de chile poblano",
+      0
+     ],
+     [
+      "Sopa de fideo seco",
+      0
+     ]
+    ],
+    "Entrada": [
+     [
+      "Ensalada de manzana y nuez",
+      0
+     ],
+     [
+      "Ensalada caprese",
+      0
+     ],
+     [
+      "Carpaccio de res",
+      15
+     ]
+    ],
+    "Plato fuerte": [
+     [
+      "Medallones de res al chipotle",
+      0
+     ],
+     [
+      "Pechuga rellena en salsa de queso",
+      0
+     ],
+     [
+      "Mole poblano",
+      0
+     ],
+     [
+      "Salmón a las finas hierbas",
+      35
+     ]
+    ],
+    "Guarnición": [
+     [
+      "Arroz a la mexicana",
+      0
+     ],
+     [
+      "Puré de papa",
+      0
+     ],
+     [
+      "Verduras al vapor",
+      0
+     ],
+     [
+      "Papas cambray",
+      0
+     ]
+    ],
+    "Postre": [
+     [
+      "Pastel tres leches",
+      0
+     ],
+     [
+      "Mousse de chocolate",
+      0
+     ],
+     [
+      "Cheesecake de frutos rojos",
+      0
+     ]
+    ]
+   },
+   "incluye": [
+    "meseros",
+    "mantelería",
+    "loza y cristalería",
+    "refresco y agua natural",
+    "5 horas de servicio"
+   ]
+  }
+ ],
+ "extras": [
+  [
+   "Barra de café y galletas",
+   35,
+   "persona"
+  ],
+  [
+   "Mesa de postres",
+   45,
+   "persona"
+  ],
+  [
+   "Mantelería premium",
+   25,
+   "persona"
+  ],
+  [
+   "Hora extra de servicio",
+   1800
+  ],
+  [
+   "Descorche",
+   1500
+  ]
+ ]
+}

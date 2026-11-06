@@ -1,6 +1,7 @@
 /* Pizka — motor de la página de cada negocio.
-   Lee window.NEGOCIO (definido en <negocio>/datos.js) y arma galería, calendario,
-   invitados, barras, toppings, extras y la cotización que se manda por WhatsApp. */
+   Lee window.NEGOCIO (lo escribe herramientas/armar.py desde negocios/<slug>.json) y arma galería,
+   menú (barras o paquetes), opciones, invitados, calendario, extras y el pedido por WhatsApp.
+   N.giro = "snacks" | "taquiza" | "banquete"  -> cambia los textos de la página. */
 (function () {
   "use strict";
   const N = window.NEGOCIO;
@@ -26,8 +27,17 @@
     m: hoy.getMonth(), y: hoy.getFullYear(),
   };
 
-  document.title = `${N.nombre} · Cotiza tu barra`;
   if (N.color) document.documentElement.style.setProperty("--negocio", N.color);
+
+  /* ---------- Textos según el giro ---------- */
+  const VOC = {
+    snacks:   { t1: "Elige tus barras", s1: "Puedes combinar varias. Precio por persona.", t2: "Arma tus toppings", s2: "Los que no tienen precio ya están incluidos.", uno: "barra", varios: "barras" },
+    taquiza:  { t1: "Elige tu taquiza", s1: "Precio por persona.", t2: "Elige tus guisados", s2: "Escoge los guisados y las aguas de tu paquete.", uno: "paquete", varios: "paquetes" },
+    banquete: { t1: "Elige tu menú", s1: "Precio por persona, con servicio incluido.", t2: "Arma tu menú", s2: "Escoge un platillo de cada tiempo.", uno: "menú", varios: "menús" },
+  };
+  const V = Object.assign({}, VOC[N.giro] || VOC.snacks, N.textos || {});
+  const soloUna = N.soloUna ?? (N.giro === "taquiza" || N.giro === "banquete");
+  $("t1").textContent = V.t1; $("s1").textContent = V.s1; $("t2").textContent = V.t2; $("s2").textContent = V.s2;
 
   /* ---------- Encabezado ---------- */
   $("logo").innerHTML = N.logo ? `<img src="${esc(N.logo)}" alt="Logo de ${esc(N.nombre)}">` : "";
@@ -37,11 +47,18 @@
   $("destacados").innerHTML = (N.destacados || []).map((d) => `<li>${esc(d)}</li>`).join("");
   $("redes").innerHTML = Object.entries(N.redes || {}).filter(([, u]) => u)
     .map(([k, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(k)}</a>`).join("");
+  $("waDirecto").href = `https://wa.me/${N.whatsapp}?text=${encodeURIComponent(`¡Hola ${N.nombre}! Vi su página y quiero información para un evento.`)}`;
+  if (N.demo) $("cinta").hidden = false;
 
   /* ---------- Galería y visor ---------- */
   const fotos = N.fotos || [];
   const VISIBLES = 5;
-  $("galeria").innerHTML = fotos.slice(0, VISIBLES).map((f, i) =>
+  if (!fotos.length) {   // sin fotos todavía: arte de marca con el color del negocio
+    $("galeria").classList.add("arte");
+    $("galeria").setAttribute("aria-hidden", "true");
+    $("galeria").innerHTML = `<i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i><span class="tz">${(N.barras || []).slice(0, 3).map((x) => `<em>${esc(x.nombre)}</em>`).join("")}</span>`;
+  }
+  if (fotos.length) $("galeria").innerHTML = fotos.slice(0, VISIBLES).map((f, i) =>
     `<button data-foto="${i}" aria-label="Ver foto: ${esc(f.texto)}">
        <img src="${esc(f.archivo)}" alt="${esc(f.texto)}" loading="${i ? "lazy" : "eager"}">
        ${i === VISIBLES - 1 && fotos.length > VISIBLES ? `<span class="mas">+${fotos.length - VISIBLES}</span>` : ""}
@@ -122,7 +139,7 @@
   function pintarTops() {
     const elegidas = N.barras.filter((b) => st.barras.has(b.id));
     if (!elegidas.length) {
-      $("tops").innerHTML = `<p class="vacio">Elige al menos una barra en el paso 3 y aquí aparecen sus toppings.</p>`;
+      $("tops").innerHTML = `<p class="vacio">Elige ${soloUna ? "tu" : "al menos una"} ${V.uno} en el paso 1 y aquí aparecen sus opciones.</p>`;
       return;
     }
     $("tops").innerHTML = elegidas.map((b) => {
@@ -179,7 +196,7 @@
     }
     $("ejemplo").hidden = !N.preciosDeEjemplo;
 
-    const falta = !st.fecha ? "Elige la fecha de tu evento." : !st.barras.size ? "Elige al menos una barra." : "";
+    const falta = !st.barras.size ? `Elige tu ${V.uno}.` : !st.fecha ? "Elige la fecha de tu evento." : "";
     $("aviso").hidden = !falta; $("aviso").textContent = falta;
 
     const extrasTxt = (N.extras || []).filter(([x]) => st.extras.has(x)).map(([x]) => x);
@@ -195,7 +212,7 @@
     const href = `https://wa.me/${N.whatsapp}?text=${encodeURIComponent(msg)}`;
     ["cta", "ctaMovil"].forEach((id) => { const a = $(id); a.href = href; a.setAttribute("aria-disabled", falta ? "true" : "false"); });
     $("totalMovil").textContent = sinPrecios ? "Cotiza gratis" : pesos(total);
-    $("resumenMovil").textContent = falta || `${inv} invitados · ${st.barras.size} barra${st.barras.size > 1 ? "s" : ""}`;
+    $("resumenMovil").textContent = falta || `${inv} invitados · ${st.barras.size} ${st.barras.size > 1 ? V.varios : V.uno}`;
   }
 
   /* ---------- Eventos ---------- */
@@ -204,8 +221,9 @@
     const d = b.dataset;
     if (d.dia) { st.fecha = d.dia; pintarCal(); cotizar(); }
     else if (d.barra) {
-      st.barras.has(d.barra) ? st.barras.delete(d.barra) : st.barras.add(d.barra);
-      b.setAttribute("aria-pressed", st.barras.has(d.barra)); pintarTops(); cotizar();
+      if (soloUna) { st.barras.clear(); st.barras.add(d.barra); }
+      else st.barras.has(d.barra) ? st.barras.delete(d.barra) : st.barras.add(d.barra);
+      pintarBarras(); pintarTops(); cotizar();
     }
     else if (d.t) {
       const s = st.tops[d.b] || (st.tops[d.b] = new Set()), br = barra(d.b);
@@ -249,7 +267,7 @@
 
   if (sinPrecios) {
     $("cta").textContent = "Pedir cotización por WhatsApp"; $("ctaMovil").textContent = "Cotizar";
-    const sub = $("barras").previousElementSibling; if (sub) sub.textContent = "Puedes combinar varias.";
+    $("s1").textContent = soloUna ? "Elige la opción que más te guste." : "Puedes combinar varias.";
   }
 
   /* Arranca con la primera barra elegida para que la cotización no salga vacía */

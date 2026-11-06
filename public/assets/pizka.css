@@ -51,6 +51,26 @@ a{color:var(--menta-profunda)}
 .galeria button:hover img{transform:scale(1.04)}
 .galeria .mas{position:absolute;inset:0;display:grid;place-items:center;background:rgba(30,42,42,.55);color:#fff;font-family:var(--display);font-size:24px}
 
+/* cinta de ejemplo */
+.cinta{background:var(--carbon);color:#F3EEE6;font-size:14px;display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));text-align:center}
+.cinta b{font-family:var(--display)} .cinta b i{font-style:normal;color:var(--menta)}
+.cinta a{color:var(--carbon);background:var(--menta);text-decoration:none;font-weight:700;padding:6px 14px;border-radius:var(--r-pill)}
+/* botones de portada */
+.hero-acc{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;background:var(--menta);color:var(--menta-tinta);text-decoration:none;font-weight:700;padding:13px 22px;border-radius:var(--r-pill);border:1.5px solid var(--menta)}
+.btn.sec{background:transparent;color:var(--carbon);border-color:var(--linea)}
+.btn:hover{filter:brightness(1.04)} .btn.sec:hover{border-color:var(--carbon)}
+/* arte de marca cuando aún no hay fotos */
+.galeria.arte{position:relative;display:block;height:348px;border-radius:var(--r-md);overflow:hidden;background:var(--arena)}
+.galeria.arte i{position:absolute;border-radius:28px}
+.galeria.arte .a1{left:6%;top:8%;width:38%;height:70%;background:var(--negocio)}
+.galeria.arte .a2{left:50%;top:-12%;width:44%;height:44%;background:var(--durazno);border-radius:50%}
+.galeria.arte .a3{left:50%;top:40%;width:28%;height:52%;background:var(--carbon)}
+.galeria.arte .a4{left:82%;top:46%;width:26%;height:40%;background:var(--menta);border-radius:999px 999px 28px 28px}
+.galeria.arte .tz{position:absolute;left:6%;bottom:6%;display:flex;flex-wrap:wrap;gap:6px;max-width:88%}
+.galeria.arte em{font-style:normal;background:var(--superficie);font-weight:700;font-size:13px;padding:6px 12px;border-radius:var(--r-pill)}
+html{scroll-behavior:smooth} #cotizar{scroll-margin-top:16px}
+
 /* ---------- Pasos ---------- */
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:start;padding-block:28px 120px}
 .paso{background:var(--superficie);border:1.5px solid var(--linea);border-radius:var(--r-md);padding:22px;margin-bottom:16px}
@@ -146,6 +166,7 @@ input[type=range]{flex:1;min-width:180px;accent-color:var(--menta)}
 .pie b i{font-style:normal;color:var(--menta)}
 
 @media (max-width:900px){
+  .galeria.arte{height:220px}
   .hero{grid-template-columns:1fr}
   .galeria{grid-template-rows:120px 120px}
   .layout{grid-template-columns:1fr}

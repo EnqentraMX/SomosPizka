@@ -4,100 +4,267 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pizka · Tu fiesta, en un link</title>
-<meta name="description" content="La página de cotización para barras de snacks: tus clientes eligen fecha, invitados y toppings, y te llega el pedido por WhatsApp.">
+<meta name="description" content="Página de cotización para barras de snacks, taquizas y banquetes. Tus clientes eligen menú, invitados y fecha, y te llega el pedido completo por WhatsApp. $299 de alta y $99 al mes.">
 <meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pizka · Tu fiesta, en un link">
+<meta property="og:description" content="Para barras de snacks, taquizas y banquetes: tus clientes cotizan solos y te llega el pedido completo por WhatsApp.">
+<meta property="og:url" content="https://pizka.demomx.workers.dev/">
+<meta property="og:image" content="https://pizka.demomx.workers.dev/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/icono.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:opsz,wght@9..40,400;9..40,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
 <link rel="stylesheet" href="/assets/pizka.css">
 <style>
-  .top{display:flex;align-items:center;justify-content:space-between;padding-block:20px}
-  .logo{font-family:var(--display);font-weight:600;font-size:28px;letter-spacing:-.5px;color:var(--carbon);text-decoration:none}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:18px}
+  .logo{font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:-.8px;color:var(--carbon);text-decoration:none}
   .logo i{font-style:normal;color:var(--menta)}
-  .btn{display:inline-block;background:var(--menta);color:var(--menta-tinta);text-decoration:none;font-weight:600;padding:13px 22px;border-radius:var(--r-pill)}
-  .btn.sec{background:transparent;color:var(--carbon);border:1.5px solid var(--linea)}
-  .portada{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;padding-block:40px 56px}
-  .portada h1{font-size:clamp(42px,7vw,76px);letter-spacing:-2px}
-  .portada p{font-size:19px;color:var(--carbon-suave);max-width:44ch;margin:18px 0 26px}
-  .acciones{display:flex;gap:10px;flex-wrap:wrap}
-  .tel{background:var(--panel);color:var(--panel-texto);border-radius:28px;padding:22px;max-width:340px;justify-self:center;width:100%;display:flex;flex-direction:column;gap:12px}
-  .tel .t1{font-family:var(--display);font-size:22px}
-  .tel .fila2{display:flex;justify-content:space-between;font-size:14px;opacity:.8}
-  .tel .gran{font-family:var(--display);font-size:44px;color:var(--durazno);line-height:1}
-  .tel .pills{display:flex;flex-wrap:wrap;gap:6px}
-  .tel .pills span{border:1px solid rgba(243,238,230,.25);border-radius:999px;padding:4px 10px;font-size:12px}
-  .tel .pills span.on{background:var(--menta);color:var(--menta-tinta);border-color:var(--menta)}
-  .tel .ws{background:var(--menta);color:var(--menta-tinta);text-align:center;padding:12px;border-radius:999px;font-weight:600}
+  .top nav{display:flex;gap:18px;align-items:center}
+  .top nav a.lk{color:var(--carbon);text-decoration:none;font-weight:600;font-size:15px}
+  @media (max-width:640px){.top nav a.lk{display:none}}
+  section{padding-block:56px}
+  h2.t{font-size:clamp(34px,5vw,52px);letter-spacing:-1.5px;max-width:20ch}
+  .lead{font-size:18px;color:var(--carbon-suave);max-width:56ch;margin:14px 0 0}
+
+  /* portada */
+  .portada{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;padding-block:28px 40px}
+  .portada h1{font-size:clamp(46px,7.4vw,86px);letter-spacing:-2.5px;line-height:.95}
+  .portada h1 em{font-style:normal;color:var(--menta-profunda)}
+  .portada .lead{font-size:20px}
+  .giros{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .giros span{background:var(--superficie);border:1.5px solid var(--linea);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px}
+  .acc{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .nota{font-size:14px;color:var(--carbon-suave);margin-top:12px}
+
+  /* demo en vivo */
+  .demo{background:var(--panel);color:var(--panel-texto);border-radius:32px;padding:22px;box-shadow:0 40px 80px rgba(30,42,42,.18);max-width:430px;width:100%;justify-self:center}
+  .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:rgba(243,238,230,.08);border-radius:999px;padding:5px}
+  .tabs button{border:0;background:transparent;color:inherit;border-radius:999px;padding:9px 6px;font-weight:700;font-size:14px;opacity:.75}
+  .tabs button[aria-selected="true"]{background:var(--menta);color:var(--menta-tinta);opacity:1}
+  .dn{font-family:var(--display);font-size:24px;margin:20px 4px 4px}
+  .dsub{font-size:13px;opacity:.65;margin:0 4px 14px}
+  .op{display:flex;flex-direction:column;gap:8px}
+  .op button{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;border:1.5px solid rgba(243,238,230,.18);background:transparent;color:inherit;border-radius:16px;padding:12px 14px;font-weight:600;font-size:15px}
+  .op button small{font-weight:400;opacity:.7;font-size:13px}
+  .op button[aria-pressed="true"]{border-color:var(--menta);background:rgba(43,181,154,.14)}
+  .inv{display:flex;align-items:center;justify-content:space-between;margin:16px 4px 0;font-size:14px}
+  .inv div{display:flex;align-items:center;gap:6px}
+  .inv button{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(243,238,230,.25);background:transparent;color:inherit;font-size:18px}
+  .inv b{font-family:var(--display);font-size:24px;min-width:48px;text-align:center}
+  .dtot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed rgba(243,238,230,.25);margin-top:16px;padding:14px 4px 0}
+  .dtot b{font-family:var(--display);font-size:44px;color:var(--durazno);line-height:1}
+  .dws{display:block;text-align:center;background:var(--menta);color:var(--menta-tinta);font-weight:700;border-radius:999px;padding:13px;margin-top:14px;text-decoration:none}
+
+  /* problema */
+  .vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}
+  .vs > div{border-radius:var(--r-md);padding:26px}
+  .vs .a{background:var(--superficie);border:1.5px solid var(--linea)}
+  .vs .d{background:var(--menta-clara)}
+  .vs h3{font-size:24px;margin-bottom:12px}
+  .vs ul{margin:0;padding-left:20px;color:var(--carbon-suave);display:flex;flex-direction:column;gap:8px}
+  .vs .d ul{color:var(--carbon)}
+
+  /* pasos */
   .franja{background:var(--superficie);border-block:1.5px solid var(--linea)}
-  .tres{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;padding-block:44px}
-  .tres h3{font-size:22px;margin-bottom:6px}
-  .tres p{margin:0;color:var(--carbon-suave)}
-  .tres .k{font-family:var(--display);font-size:15px;color:var(--menta-profunda);margin-bottom:10px;display:block}
-  .antes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding-block:56px}
-  .antes div{border-radius:var(--r-md);padding:24px}
-  .antes .a{background:var(--superficie);border:1.5px solid var(--linea)}
-  .antes .d{background:var(--menta-clara)}
-  .antes h3{font-size:22px;margin-bottom:10px}
-  .antes ul{margin:0;padding-left:18px;color:var(--carbon-suave)}
-  .antes li{margin:6px 0}
-  .precio{background:var(--panel);color:var(--panel-texto);border-radius:var(--r-md);padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;margin-bottom:56px}
-  .precio h2{font-size:clamp(28px,4vw,40px)}
-  .precio .cifras{display:flex;gap:28px;flex-wrap:wrap}
-  .precio .cifras b{display:block;font-family:var(--display);font-size:46px;color:var(--durazno);line-height:1}
-  .precio .cifras small{opacity:.75}
-  @media (max-width:900px){.portada{grid-template-columns:1fr}}
+  .pasos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:30px}
+  .pasos .k{font-family:var(--display);font-size:46px;color:var(--menta);line-height:1}
+  .pasos h3{font-size:22px;margin:10px 0 6px}
+  .pasos p{margin:0;color:var(--carbon-suave)}
+
+  /* ejemplos */
+  .ejs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
+  .ej{background:var(--superficie);border:1.5px solid var(--linea);border-radius:var(--r-md);overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+  .ej:hover{transform:translateY(-3px);border-color:var(--carbon)}
+  .ej img{width:100%;aspect-ratio:1200/630;object-fit:cover;background:var(--arena)}
+  .ej div{padding:16px 18px 18px}
+  .ej b{font-family:var(--display);font-size:21px;display:block}
+  .ej span{color:var(--carbon-suave);font-size:14px}
+  .ej u{display:inline-block;margin-top:10px;text-decoration:none;color:var(--menta-profunda);font-weight:700;font-size:14px}
+
+  /* funciones */
+  .fx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}
+  .fx div{background:var(--superficie);border:1.5px solid var(--linea);border-radius:var(--r-md);padding:20px}
+  .fx b{display:block;font-size:17px;margin-bottom:4px}
+  .fx p{margin:0;color:var(--carbon-suave);font-size:15px}
+
+  /* precio */
+  .precio{background:var(--panel);color:var(--panel-texto);border-radius:28px;padding:40px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center}
+  .precio h2{font-size:clamp(32px,4.4vw,48px);letter-spacing:-1.2px}
+  .precio ul{padding-left:20px;opacity:.85;display:flex;flex-direction:column;gap:6px;margin:16px 0 0}
+  .cifras{display:flex;gap:30px;flex-wrap:wrap}
+  .cifras b{display:block;font-family:var(--display);font-size:64px;color:var(--durazno);line-height:1}
+  .cifras small{opacity:.75}
+  .precio .btn{margin-top:22px}
+
+  /* preguntas */
+  .faq{display:flex;flex-direction:column;gap:10px;margin-top:26px;max-width:760px}
+  .faq details{background:var(--superficie);border:1.5px solid var(--linea);border-radius:var(--r-md);padding:16px 20px}
+  .faq summary{font-weight:700;cursor:pointer;font-size:17px}
+  .faq p{margin:10px 0 0;color:var(--carbon-suave)}
+  .cierre{text-align:center}
+  .cierre h2{margin:0 auto}
+  .cierre .acc{justify-content:center}
+
+  @media (max-width:900px){
+    .portada,.precio{grid-template-columns:1fr}
+    .pasos,.ejs,.fx{grid-template-columns:1fr}
+    .vs{grid-template-columns:1fr}
+    section{padding-block:40px}
+    .precio{padding:28px}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <nav class="top">
+  <header class="top">
     <a class="logo" href="/">pizka<i>.</i></a>
-    <!-- CAMBIA el número por el tuyo (52 + 10 dígitos) -->
-    <a class="btn sec" href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20quiero%20mi%20p%C3%A1gina%20de%20Pizka" target="_blank" rel="noopener">Quiero mi página</a>
-  </nav>
+    <nav><a class="lk" href="#ejemplos">Ejemplos</a><a class="lk" href="#precio">Precio</a><a class="btn js-wa" href="#">Quiero mi página</a></nav>
+  </header>
 
   <section class="portada">
     <div>
-      <span class="etq">Para barras de snacks y mesas de postres</span>
-      <h1>Tu fiesta, en un link.</h1>
-      <p>Tus clientes eligen fecha, invitados, barra y toppings. Ven el total al momento y te llega el pedido completo por WhatsApp.</p>
-      <div class="acciones">
-        <a class="btn" href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20quiero%20mi%20p%C3%A1gina%20de%20Pizka" target="_blank" rel="noopener">Quiero mi página</a>
-        <a class="btn sec" href="#como">Cómo funciona</a>
+      <span class="etq">Para negocios de comida para eventos</span>
+      <h1>Tu fiesta, <em>en un link.</em></h1>
+      <p class="lead">Tus clientes eligen menú, invitados y fecha, ven el total al momento y te llega el pedido completo por WhatsApp. Sin mandar flyers ni cotizar a mano.</p>
+      <div class="giros"><span>Barras de snacks</span><span>Taquizas</span><span>Banquetes</span></div>
+      <div class="acc"><a class="btn js-wa" href="#">Quiero mi página</a><a class="btn sec" href="#ejemplos">Ver ejemplos</a></div>
+      <p class="nota">$299 de alta y $99 al mes. Primero ves tu página armada.</p>
+    </div>
+
+    <div class="demo" aria-label="Prueba cómo cotiza tu cliente">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-g="snacks" aria-selected="true">Snacks</button>
+        <button role="tab" data-g="taquiza" aria-selected="false">Taquiza</button>
+        <button role="tab" data-g="banquete" aria-selected="false">Banquete</button>
       </div>
-    </div>
-    <div class="tel" aria-hidden="true">
-      <span class="t1">Tu cotización</span>
-      <div class="fila2"><span>Sábado 14 de noviembre</span><span>80 invitados</span></div>
-      <div class="pills"><span class="on">Fresas con crema</span><span class="on">Snacks</span><span>Mini hotcakes</span></div>
-      <div class="fila2"><span>Total estimado</span></div>
-      <span class="gran">$12,800</span>
-      <span class="ws">Apartar por WhatsApp</span>
+      <div class="dn" id="dn">La Chispa</div>
+      <div class="dsub">Así cotiza tu cliente. Pruébalo.</div>
+      <div class="op" id="dop"></div>
+      <div class="inv"><span>Invitados</span><div><button id="dm" aria-label="Menos invitados">−</button><b id="di">60</b><button id="dp" aria-label="Más invitados">+</button></div></div>
+      <div class="dtot"><span>Total estimado</span><b id="dt">$0</b></div>
+      <a class="dws" id="dlink" href="/ejemplo-snacks/">Abrir la página completa</a>
     </div>
   </section>
 </div>
 
-<div class="franja" id="como">
-  <div class="wrap tres">
-    <div><span class="k">Paso 1</span><h3>Te armamos tu página</h3><p>Con tus fotos, barras, toppings y precios. Queda en pizka.mx/tu-negocio.</p></div>
-    <div><span class="k">Paso 2</span><h3>La compartes</h3><p>En tu bio de Instagram, TikTok, Facebook y como respuesta rápida de WhatsApp.</p></div>
-    <div><span class="k">Paso 3</span><h3>Te llegan pedidos listos</h3><p>Con fecha, invitados, barras, toppings y total. Tú solo confirmas y cobras el anticipo.</p></div>
+<section class="wrap">
+  <span class="etq">El problema</span>
+  <h2 class="t">Cotizar por WhatsApp te come el día.</h2>
+  <div class="vs">
+    <div class="a"><h3>Sin Pizka</h3><ul><li>Mandas el mismo flyer veinte veces al día.</li><li>"¿Cuánto sale para 80 personas?"</li><li>Sacas cuentas a mano para cada combinación.</li><li>"¿Tienen libre el sábado?"</li><li>Contestas a las 11 de la noche.</li></ul></div>
+    <div class="d"><h3>Con Pizka</h3><ul><li>Mandas un solo link.</li><li>El cliente ve tus días libres.</li><li>Elige su menú y el total sale solo.</li><li>Te llega el pedido completo, listo para apartar.</li><li>Tú solo confirmas y cobras el anticipo.</li></ul></div>
   </div>
+</section>
+
+<div class="franja">
+  <section class="wrap">
+    <span class="etq">Cómo funciona</span>
+    <h2 class="t">Lista en 24 horas, sin que toques una computadora.</h2>
+    <div class="pasos">
+      <div><span class="k">1</span><h3>Nos mandas tu menú</h3><p>Por WhatsApp: tus fotos, paquetes, precios por persona y opciones.</p></div>
+      <div><span class="k">2</span><h3>Te armamos tu página</h3><p>Con tu logo y tus colores, en tu propio link. La revisas antes de pagar.</p></div>
+      <div><span class="k">3</span><h3>La compartes</h3><p>En tu bio de Instagram, TikTok y Facebook, y como respuesta rápida en WhatsApp.</p></div>
+    </div>
+  </section>
 </div>
 
-<div class="wrap">
-  <section class="antes">
-    <div class="a"><h3>Sin Pizka</h3><ul><li>Mandas el mismo flyer veinte veces al día.</li><li>"¿Cuánto sale para 80 personas?"</li><li>Cotizas a mano cada combinación.</li><li>"¿Tienes libre el sábado?"</li></ul></div>
-    <div class="d"><h3>Con Pizka</h3><ul><li>Mandas un link.</li><li>El cliente ve tus días libres.</li><li>El total se calcula solo.</li><li>Te llega el pedido completo, listo para apartar.</li></ul></div>
-  </section>
+<section class="wrap" id="ejemplos">
+  <span class="etq">Ejemplos</span>
+  <h2 class="t">Mira cómo se ve con tu tipo de negocio.</h2>
+  <p class="lead">Negocios de ejemplo, con precios de muestra. Ábrelos en tu celular y prueba a cotizar.</p>
+  <div class="ejs">
+    <a class="ej" href="/ejemplo-snacks/"><img src="/ejemplo-snacks/compartir.jpg" alt="" loading="lazy"><div><b>Barra de snacks</b><span>Varias barras combinables, toppings con límite de "elige 10".</span><br><u>Ver ejemplo →</u></div></a>
+    <a class="ej" href="/ejemplo-taquiza/"><img src="/ejemplo-taquiza/compartir.jpg" alt="" loading="lazy"><div><b>Taquiza</b><span>Paquetes de 4, 6 u 8 guisados, aguas frescas y extras.</span><br><u>Ver ejemplo →</u></div></a>
+    <a class="ej" href="/ejemplo-banquete/"><img src="/ejemplo-banquete/compartir.jpg" alt="" loading="lazy"><div><b>Banquete</b><span>Menús de 3 y 4 tiempos: un platillo por tiempo.</span><br><u>Ver ejemplo →</u></div></a>
+  </div>
+</section>
 
-  <section class="precio">
-    <div><h2>Un precio simple.</h2><p class="chico" style="font-size:14px">Sin comisiones por pedido. Cancela cuando quieras.</p></div>
-    <div class="cifras"><div><b>$249</b><small>alta, una sola vez</small></div><div><b>$99</b><small>al mes</small></div></div>
-    <a class="btn" href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20quiero%20mi%20p%C3%A1gina%20de%20Pizka" target="_blank" rel="noopener">Quiero mi página</a>
-  </section>
+<section class="wrap">
+  <span class="etq">Qué incluye</span>
+  <h2 class="t">Todo lo que tu cliente pregunta, contestado en tu página.</h2>
+  <div class="fx">
+    <div><b>Tu menú con fotos</b><p>Barras, paquetes o tiempos, cada uno con su precio por persona.</p></div>
+    <div><b>"Elige 4 guisados"</b><p>Respeta tus reglas: cuántos toppings, guisados o platillos entran en cada paquete.</p></div>
+    <div><b>Total al instante</b><p>Se calcula con los invitados, las opciones con costo y los extras.</p></div>
+    <div><b>Calendario</b><p>Tus días ocupados aparecen tachados para que no te pregunten de más.</p></div>
+    <div><b>Pedido por WhatsApp</b><p>Te llega a tu número con fecha, invitados, menú y total ya escritos.</p></div>
+    <div><b>Se ve bien al compartir</b><p>Al mandar tu link sale tu nombre, tu logo y tu foto.</p></div>
+  </div>
+</section>
 
-  <footer class="pie"><span><b>pizka<i>.</i></b> · Tu fiesta, en un link.</span><span>Hecho en México</span></footer>
-</div>
+<section class="wrap" id="precio">
+  <div class="precio">
+    <div>
+      <h2>Un precio simple.</h2>
+      <ul><li>Tu página armada con tus fotos y precios.</li><li>Cambios de menú, precios y fechas cuando los necesites.</li><li>Sin comisiones por pedido. Cancela cuando quieras.</li></ul>
+      <a class="btn js-wa" href="#">Quiero mi página</a>
+    </div>
+    <div class="cifras"><div><b>$299</b><small>de alta, una sola vez</small></div><div><b>$99</b><small>al mes</small></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <span class="etq">Preguntas frecuentes</span>
+  <h2 class="t">Lo que nos preguntan.</h2>
+  <div class="faq">
+    <details><summary>¿Necesito saber de computación?</summary><p>No. Nos mandas todo por WhatsApp y nosotros armamos y actualizamos tu página.</p></details>
+    <details><summary>¿Cuánto tarda en estar lista?</summary><p>Normalmente 24 horas después de que nos mandas tus fotos y tu menú.</p></details>
+    <details><summary>¿Cómo cambio mis precios o mis días ocupados?</summary><p>Nos escribes y lo cambiamos. Está incluido en tu mensualidad.</p></details>
+    <details><summary>¿Me cobran por cada pedido?</summary><p>No. Pagas $99 al mes sin importar cuántos pedidos te lleguen.</p></details>
+    <details><summary>¿Y si no tengo precios fijos?</summary><p>Tu página puede funcionar como "Pedir cotización": el cliente arma su evento y tú le das el precio por WhatsApp.</p></details>
+    <details><summary>¿Puedo cancelar?</summary><p>Sí, cuando quieras. Sin plazos forzosos.</p></details>
+  </div>
+</section>
+
+<section class="wrap cierre">
+  <h2 class="t">Deja de mandar flyers. Manda tu link.</h2>
+  <div class="acc"><a class="btn js-wa" href="#">Quiero mi página</a></div>
+</section>
+
+<footer class="wrap pie"><span><b>pizka<i>.</i></b> · Tu fiesta, en un link.</span><span>Hecho en México</span></footer>
+
+<script>
+// Número de WhatsApp de Pizka (52 + 10 dígitos)
+var PIZKA_WA = "529511836468";
+var txt = encodeURIComponent("Hola, tengo un negocio de comida para eventos y quiero mi página en Pizka.");
+document.querySelectorAll(".js-wa").forEach(function (a) { a.href = "https://wa.me/" + PIZKA_WA + "?text=" + txt; a.target = "_blank"; a.rel = "noopener"; });
+
+// Demo de la portada
+var DEMOS = {
+  snacks:  { n: "La Chispa", link: "/ejemplo-snacks/", multi: true, inv: 60, ops: [["Barra de Snacks", "Vasos con fruta, gomitas y botanas", 85], ["Mini Hotcakes", "Hechos al momento", 80], ["Barra de Esquites", "Con chilito y limón", 70]] },
+  taquiza: { n: "Taquizas El Fogón", link: "/ejemplo-taquiza/", multi: false, inv: 80, ops: [["Taquiza Clásica", "4 guisados y 1 agua", 150], ["Taquiza Especial", "6 guisados y 2 aguas", 185], ["Taquiza Fiesta", "8 guisados, consomé y postre", 230]] },
+  banquete:{ n: "Banquetes Jacarandas", link: "/ejemplo-banquete/", multi: false, inv: 100, ops: [["Menú 3 tiempos", "Entrada, fuerte y postre", 320], ["Menú 4 tiempos", "Crema, entrada, fuerte y postre", 410]] }
+};
+var g = "snacks", sel = [0], inv = 60;
+function $(id) { return document.getElementById(id); }
+function pesos(n) { return "$" + Math.round(n).toLocaleString("es-MX"); }
+function pinta() {
+  var d = DEMOS[g];
+  $("dn").textContent = d.n; $("dlink").href = d.link; $("di").textContent = inv;
+  $("dop").innerHTML = d.ops.map(function (o, i) {
+    return '<button data-i="' + i + '" aria-pressed="' + (sel.indexOf(i) > -1) + '"><span>' + o[0] + '<br><small>' + o[1] + '</small></span><span>' + pesos(o[2]) + ' p/p</span></button>';
+  }).join("");
+  var t = sel.reduce(function (s, i) { return s + d.ops[i][2] * inv; }, 0);
+  $("dt").textContent = pesos(t);
+}
+document.querySelectorAll(".tabs button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    document.querySelectorAll(".tabs button").forEach(function (x) { x.setAttribute("aria-selected", x === b); });
+    g = b.dataset.g; sel = [0]; inv = DEMOS[g].inv; pinta();
+  });
+});
+$("dop").addEventListener("click", function (e) {
+  var b = e.target.closest("button"); if (!b) return; var i = +b.dataset.i, d = DEMOS[g];
+  if (d.multi) { var k = sel.indexOf(i); if (k > -1) { if (sel.length > 1) sel.splice(k, 1); } else sel.push(i); } else sel = [i];
+  pinta();
+});
+$("dm").addEventListener("click", function () { inv = Math.max(40, inv - 10); pinta(); });
+$("dp").addEventListener("click", function () { inv = Math.min(500, inv + 10); pinta(); });
+pinta();
+</script>
 </body>
 </html>

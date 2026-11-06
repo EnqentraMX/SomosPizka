@@ -1,0 +1,7 @@
+# Cabeceras para Cloudflare
+/assets/*
+  Cache-Control: public, max-age=3600
+/*/fotos/*
+  Cache-Control: public, max-age=604800
+/la-botanita/*
+  X-Robots-Tag: noindex, nofollow

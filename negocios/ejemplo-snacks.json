@@ -1,0 +1,275 @@
+{
+ "demo": true,
+ "preciosDeEjemplo": true,
+ "whatsapp": "529511836468",
+ "redes": {},
+ "fotos": [],
+ "logo": "",
+ "diasDeAnticipacion": 2,
+ "diasOcupados": [
+  "2026-11-14",
+  "2026-11-21",
+  "2026-11-28",
+  "2026-12-12",
+  "2026-12-19",
+  "2026-12-24",
+  "2026-12-31"
+ ],
+ "diasCasiLlenos": [
+  "2026-11-15",
+  "2026-12-05",
+  "2026-12-13"
+ ],
+ "diasQueNoTrabaja": [],
+ "nombre": "La Chispa",
+ "giro": "snacks",
+ "ciudad": "Barra de snacks · Ejemplo",
+ "color": "#C2185B",
+ "descripcion": "Barras de snacks, esquites y mini hotcakes para cumpleaños, XV años, bodas y eventos de empresa.",
+ "destacados": [
+  "Paquetes desde 40 personas",
+  "Tú eliges los toppings",
+  "Montaje incluido"
+ ],
+ "minimoInvitados": 40,
+ "maximoInvitados": 400,
+ "invitadosIniciales": 60,
+ "anticipo": 0.5,
+ "trasladoYMontaje": 0,
+ "barras": [
+  {
+   "id": "snacks",
+   "nombre": "Barra de Snacks",
+   "descripcion": "Vasos preparados con fruta, verdura, gomitas y botanas",
+   "precioPorPersona": 85,
+   "eligeTotal": 10,
+   "toppings": {
+    "Fruta y verdura": [
+     [
+      "Pepino",
+      0
+     ],
+     [
+      "Jícama",
+      0
+     ],
+     [
+      "Zanahoria",
+      0
+     ],
+     [
+      "Mango",
+      0
+     ]
+    ],
+    "Gomitas": [
+     [
+      "Panditas",
+      0
+     ],
+     [
+      "Lombrices",
+      0
+     ],
+     [
+      "Manguitos enchilados",
+      0
+     ]
+    ],
+    "Botanas": [
+     [
+      "Japonés",
+      0
+     ],
+     [
+      "Cueritos",
+      0
+     ],
+     [
+      "Papas adobadas",
+      0
+     ],
+     [
+      "Churritos",
+      0
+     ]
+    ],
+    "Especiales": [
+     [
+      "Banderilla enchilada",
+      5
+     ],
+     [
+      "Tamarindo",
+      4
+     ]
+    ]
+   },
+   "incluye": [
+    "limón",
+    "Tajín",
+    "Miguelito",
+    "Valentina",
+    "chamoy"
+   ]
+  },
+  {
+   "id": "esquites",
+   "nombre": "Barra de Esquites",
+   "descripcion": "Con chilito y limón",
+   "precioPorPersona": 70,
+   "elige": {
+    "Topping": 3
+   },
+   "toppings": {
+    "Topping": [
+     [
+      "Doritos Nacho",
+      0
+     ],
+     [
+      "Takis Fuego",
+      0
+     ],
+     [
+      "Cheetos Flamin' Hot",
+      0
+     ],
+     [
+      "Ruffles de queso",
+      0
+     ],
+     [
+      "Tostitos",
+      0
+     ]
+    ]
+   },
+   "incluye": [
+    "mayonesa",
+    "queso",
+    "limón",
+    "chile",
+    "Valentina"
+   ]
+  },
+  {
+   "id": "hotcakes",
+   "nombre": "Mini Hotcakes",
+   "descripcion": "Hechos al momento",
+   "precioPorPersona": 80,
+   "elige": {
+    "Topping": 5,
+    "Untable": 3
+   },
+   "toppings": {
+    "Topping": [
+     [
+      "Oreo",
+      0
+     ],
+     [
+      "Chispas de chocolate",
+      0
+     ],
+     [
+      "Nuez",
+      0
+     ],
+     [
+      "Granillo de colores",
+      0
+     ],
+     [
+      "Mazapán",
+      0
+     ],
+     [
+      "Bombones",
+      0
+     ]
+    ],
+    "Untable": [
+     [
+      "Nutella",
+      0
+     ],
+     [
+      "Lechera",
+      0
+     ],
+     [
+      "Cajeta",
+      0
+     ],
+     [
+      "Miel",
+      0
+     ]
+    ],
+    "Fruta": [
+     [
+      "Fresa",
+      0
+     ],
+     [
+      "Plátano",
+      0
+     ],
+     [
+      "Blueberry",
+      8
+     ]
+    ]
+   }
+  },
+  {
+   "id": "fresas",
+   "nombre": "Fresas con Crema",
+   "descripcion": "Con toppings dulces",
+   "precioPorPersona": 75,
+   "elige": {
+    "Topping": 4
+   },
+   "toppings": {
+    "Topping": [
+     [
+      "Granola",
+      0
+     ],
+     [
+      "Chocolate",
+      0
+     ],
+     [
+      "Nuez",
+      0
+     ],
+     [
+      "Lunetas",
+      0
+     ],
+     [
+      "Coco rallado",
+      0
+     ]
+    ]
+   }
+  }
+ ],
+ "extras": [
+  [
+   "Vaso personalizado con nombre",
+   8,
+   "persona"
+  ],
+  [
+   "Decoración temática",
+   500
+  ],
+  [
+   "Hora extra de servicio",
+   600
+  ]
+ ]
+}
