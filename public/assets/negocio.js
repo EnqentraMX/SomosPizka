@@ -207,7 +207,7 @@
       ...detalle,
       extrasTxt.length ? `➕ Extras: ${extrasTxt.join(", ")}` : null,
       sinPrecios ? `¿Me pasan la cotización y disponibilidad? 🙏` : `💰 Total estimado: ${pesos(total)}`,
-      ``, `(Cotizado en pizka.mx)`,
+      ``, `(Cotizado con Pizka)`,
     ].filter((l) => l !== null).join("\n");
     const href = `https://wa.me/${N.whatsapp}?text=${encodeURIComponent(msg)}`;
     ["cta", "ctaMovil"].forEach((id) => { const a = $(id); a.href = href; a.setAttribute("aria-disabled", falta ? "true" : "false"); });

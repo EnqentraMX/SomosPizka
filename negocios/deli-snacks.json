@@ -1,0 +1,371 @@
+{
+ "nombre": "Deli Snack's",
+ "giro": "snacks",
+ "ciudad": "CDMX y Estado de México",
+ "color": "#C8102E",
+ "descripcion": "Barras de snacks, comidas y bebidas para eventos. Más que un servicio, creamos momentos que se quedan en la memoria de tus invitados: presentación, sabor y detalle en cada evento.",
+ "resumen": "Más de 17 barras de snacks, comidas y bebidas para bodas, cumpleaños, graduaciones y eventos de empresa en CDMX y Estado de México. Arma tu evento y cotiza por WhatsApp.",
+ "destacados": [
+  "Más de 17 barras",
+  "2 horas de servicio incluidas",
+  "Staff atendiendo todo el tiempo",
+  "Montaje y personalización"
+ ],
+ "whatsapp": "525636687726",
+ "logo": "fotos/logo.jpg",
+ "redes": {
+  "Facebook": "https://www.facebook.com/profile.php?id=61555684542247"
+ },
+ "fotos": [
+  {
+   "archivo": "fotos/evento-carpa.jpg",
+   "texto": "Barra de snacks en evento"
+  },
+  {
+   "archivo": "fotos/snacks.jpg",
+   "texto": "Barra de snacks"
+  },
+  {
+   "archivo": "fotos/taquiza.jpg",
+   "texto": "Servicio de taquiza"
+  },
+  {
+   "archivo": "fotos/tarjeta.jpg",
+   "texto": "Calidad y amor en cada porción"
+  },
+  {
+   "archivo": "fotos/hotcakes.jpg",
+   "texto": "Barra de mini hotcakes"
+  },
+  {
+   "archivo": "fotos/dorilocos.jpg",
+   "texto": "Barra de dorilocos"
+  },
+  {
+   "archivo": "fotos/esquites.jpg",
+   "texto": "Barra de esquites"
+  },
+  {
+   "archivo": "fotos/chilaquiles.jpg",
+   "texto": "Barra de chilaquiles"
+  },
+  {
+   "archivo": "fotos/paletas.jpg",
+   "texto": "Barra de paletas de hielo"
+  },
+  {
+   "archivo": "fotos/maruchan.jpg",
+   "texto": "Barra de Maruchan"
+  },
+  {
+   "archivo": "fotos/flautas.jpg",
+   "texto": "Barra de flautas"
+  },
+  {
+   "archivo": "fotos/chicharrones.jpg",
+   "texto": "Barra de chicharrones preparados"
+  }
+ ],
+ "minimoInvitados": 30,
+ "maximoInvitados": 500,
+ "invitadosIniciales": 50,
+ "diasDeAnticipacion": 2,
+ "barras": [
+  {
+   "id": "snacks",
+   "nombre": "Barra de Snacks",
+   "descripcion": "15 toppings a elegir, con refill",
+   "foto": "fotos/snacks.jpg",
+   "incluye": [
+    "gomitas",
+    "fruta fresca",
+    "frituras",
+    "botanas",
+    "variedad de dulces",
+    "chamoy, aderezos y Miguelitos de sabor",
+    "refill",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {}
+  },
+  {
+   "id": "dorilocos",
+   "nombre": "Barra de Dorilocos",
+   "descripcion": "Doritos Nachos preparados al momento",
+   "foto": "fotos/dorilocos.jpg",
+   "incluye": [
+    "Doritos Nachos",
+    "jícama",
+    "pepino",
+    "zanahoria",
+    "gomitas",
+    "cueritos",
+    "limones",
+    "dulces premium",
+    "salsas, chamoy y Miguelitos de sabor",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {}
+  },
+  {
+   "id": "esquites",
+   "nombre": "Barra de Esquites",
+   "descripcion": "Con 3 frituras a elegir y refill",
+   "foto": "fotos/esquites.jpg",
+   "incluye": [
+    "mayonesa",
+    "queso blanco",
+    "salsas especiales para esquites",
+    "saborizantes",
+    "limones",
+    "refill",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {}
+  },
+  {
+   "id": "taquiza",
+   "nombre": "Servicio de Taquiza",
+   "descripcion": "3 proteínas a elegir, tacos ilimitados",
+   "foto": "fotos/taquiza.jpg",
+   "incluye": [
+    "tacos ilimitados",
+    "tortilla amarilla grande",
+    "pepinos",
+    "limones",
+    "salsas",
+    "agua de sabor",
+    "cebollitas, chilitos y nopalitos asados",
+    "desechables",
+    "preparación al momento",
+    "2 horas de servicio"
+   ],
+   "toppings": {
+    "Extras": [
+     [
+      "Papas a la francesa (costo extra)",
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "paletas",
+   "nombre": "Barra de Paletas de Hielo",
+   "descripcion": "Paletas hexagonales de agua y leche",
+   "foto": "fotos/paletas.jpg",
+   "incluye": [
+    "10 toppings a elegir",
+    "cobertura de chocolate",
+    "jaleas para paletas de agua y de leche",
+    "refill",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {
+    "Sabores": [
+     [
+      "Paletas de agua",
+      0
+     ],
+     [
+      "Paletas de leche",
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "hotcakes",
+   "nombre": "Barra de Mini Hotcakes",
+   "descripcion": "10 toppings a elegir, con refill",
+   "foto": "fotos/hotcakes.jpg",
+   "incluye": [
+    "fruta",
+    "untables",
+    "jaleas",
+    "mermeladas",
+    "refill",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {
+    "Extras": [
+     [
+      "Nieve de sabor (costo extra)",
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "flautas",
+   "nombre": "Barra de Flautas",
+   "descripcion": "Flautas de queso, papa, pollo y carne",
+   "foto": "fotos/flautas.jpg",
+   "incluye": [
+    "crema",
+    "queso blanco",
+    "lechuga",
+    "salsa roja y verde",
+    "refill",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {
+    "Flautas": [
+     [
+      "Queso",
+      0
+     ],
+     [
+      "Papa",
+      0
+     ],
+     [
+      "Pollo",
+      0
+     ],
+     [
+      "Carne",
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "chilaquiles",
+   "nombre": "Barra de Chilaquiles",
+   "descripcion": "Verdes o rojos, con pollo",
+   "foto": "fotos/chilaquiles.jpg",
+   "incluye": [
+    "pollo",
+    "queso",
+    "crema",
+    "cilantro",
+    "cebolla picada",
+    "pan",
+    "refill",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {
+    "Salsa": [
+     [
+      "Salsa verde",
+      0
+     ],
+     [
+      "Salsa roja",
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "maruchan",
+   "nombre": "Barra de Maruchan",
+   "descripcion": "Maruchan surtida con 3 frituras a elegir",
+   "foto": "fotos/maruchan.jpg",
+   "incluye": [
+    "saborizantes",
+    "salsas y aderezos",
+    "limones",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {
+    "Para agregar": [
+     [
+      "Con esquites (costo extra)",
+      0
+     ],
+     [
+      "Con suadero (costo extra)",
+      0
+     ],
+     [
+      "Pa'l bajón: chilitos y cebollitas",
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "chicharrones",
+   "nombre": "Barra de Chicharrones Preparados",
+   "descripcion": "Chicharrones preparados con refill",
+   "foto": "fotos/chicharrones.jpg",
+   "incluye": [
+    "cueritos",
+    "jitomate",
+    "aguacate",
+    "col",
+    "limones",
+    "salsas",
+    "refill",
+    "staff en la barra",
+    "2 horas de servicio"
+   ],
+   "toppings": {
+    "Opcional": [
+     [
+      "Queso cotija",
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "hotdogs",
+   "nombre": "Barra de Hotdogs",
+   "descripcion": "Hotdogs preparados en tu evento",
+   "toppings": {}
+  },
+  {
+   "id": "hamburguesas",
+   "nombre": "Barra de Hamburguesas",
+   "descripcion": "Hamburguesas preparadas en tu evento",
+   "toppings": {}
+  },
+  {
+   "id": "frappes",
+   "nombre": "Barra de Frappés",
+   "descripcion": "Frappés preparados al momento",
+   "toppings": {}
+  },
+  {
+   "id": "nieves",
+   "nombre": "Barra de Nieves",
+   "descripcion": "Nieves de sabores",
+   "toppings": {}
+  },
+  {
+   "id": "fruta",
+   "nombre": "Barra de Fruta",
+   "descripcion": "Fruta fresca preparada",
+   "toppings": {}
+  },
+  {
+   "id": "azulitos",
+   "nombre": "Barra de Azulitos y Rositas",
+   "descripcion": "Bebidas preparadas para tu fiesta",
+   "toppings": {},
+   "nota": "Bebidas con alcohol: solo para mayores de edad."
+  },
+  {
+   "id": "micheladas",
+   "nombre": "Barra de Micheladas",
+   "descripcion": "Micheladas preparadas al momento",
+   "toppings": {},
+   "nota": "Bebidas con alcohol: solo para mayores de edad."
+  }
+ ],
+ "extras": [],
+ "diasOcupados": [],
+ "diasCasiLlenos": [],
+ "diasQueNoTrabaja": []
+}
