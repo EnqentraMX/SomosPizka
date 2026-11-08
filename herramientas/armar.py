@@ -78,11 +78,11 @@ def tarjeta(n):
     return f"""<html><head><meta charset="utf-8"><style>{ff}
 *{{margin:0;box-sizing:border-box}}
 body{{width:1200px;height:630px;background:#FAF6EF;color:#1E2A2A;font-family:"DM Sans",system-ui,sans-serif;display:grid;grid-template-columns:1fr 470px;overflow:hidden}}
-.tx{{padding:64px 30px 56px 72px;display:flex;flex-direction:column}}
+.tx{{padding:48px 30px 52px 72px;display:flex;flex-direction:column}}
 .top{{display:flex;align-items:center;gap:18px}}
-.logo{{width:84px;height:84px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 4px 14px rgba(30,42,42,.15)}}
+.logo{{width:132px;height:132px;border-radius:50%;object-fit:cover;background:#fff;border:5px solid #fff;box-shadow:0 6px 18px rgba(30,42,42,.18)}}
 .etq{{font-size:22px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:{n.get('color', '#0F7A66')}}}
-h1{{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:{tam}px;line-height:1;letter-spacing:-2px;margin-top:30px}}
+h1{{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:{tam}px;line-height:1;letter-spacing:-2px;margin-top:24px}}
 .menu{{font-size:26px;color:#5B6866;margin-top:22px;line-height:1.35}}
 .pie{{margin-top:auto;display:flex;align-items:center;justify-content:space-between}}
 .cta{{background:#2BB59A;color:#0B3B31;font-weight:700;font-size:26px;padding:16px 28px;border-radius:999px}}
