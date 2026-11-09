@@ -122,7 +122,7 @@
 <div class="wrap">
   <header class="top">
     <a class="logo" href="/">pizka<i>.</i></a>
-    <nav><a class="lk" href="#ejemplos">Ejemplos</a><a class="lk" href="#precio">Precio</a><a class="btn js-wa" href="#">Quiero mi página</a></nav>
+    <nav><a class="lk" href="#como">Cómo funciona</a><a class="lk" href="#precio">Precio</a><a class="btn js-wa" href="#">Quiero mi página</a></nav>
   </header>
 
   <section class="portada">
@@ -131,7 +131,7 @@
       <h1>Tu fiesta, <em>en un link.</em></h1>
       <p class="lead">Tus clientes eligen menú, invitados y fecha, ven el total al momento y te llega el pedido completo por WhatsApp. Sin mandar flyers ni cotizar a mano.</p>
       <div class="giros"><span>Barras de snacks</span><span>Taquizas</span><span>Banquetes</span></div>
-      <div class="acc"><a class="btn js-wa" href="#">Quiero mi página</a><a class="btn sec" href="#ejemplos">Ver ejemplos</a></div>
+      <div class="acc"><a class="btn js-wa" href="#">Quiero mi página</a><a class="btn sec" href="#como">Cómo funciona</a></div>
       <p class="nota">$299 de alta y $99 al mes. Primero ves tu página armada.</p>
     </div>
 
@@ -146,7 +146,7 @@
       <div class="op" id="dop"></div>
       <div class="inv"><span>Invitados</span><div><button id="dm" aria-label="Menos invitados">−</button><b id="di">60</b><button id="dp" aria-label="Más invitados">+</button></div></div>
       <div class="dtot"><span>Total estimado</span><b id="dt">$0</b></div>
-      <a class="dws" id="dlink" href="/ejemplo-snacks/">Abrir la página completa</a>
+      <a class="dws js-wa" href="#">Quiero una así</a>
     </div>
   </section>
 </div>
@@ -160,7 +160,7 @@
   </div>
 </section>
 
-<div class="franja">
+<div class="franja" id="como">
   <section class="wrap">
     <span class="etq">Cómo funciona</span>
     <h2 class="t">Lista en 24 horas, sin que toques una computadora.</h2>
@@ -171,17 +171,6 @@
     </div>
   </section>
 </div>
-
-<section class="wrap" id="ejemplos">
-  <span class="etq">Ejemplos</span>
-  <h2 class="t">Mira cómo se ve con tu tipo de negocio.</h2>
-  <p class="lead">Negocios de ejemplo, con precios de muestra. Ábrelos en tu celular y prueba a cotizar.</p>
-  <div class="ejs">
-    <a class="ej" href="/ejemplo-snacks/"><img src="/ejemplo-snacks/compartir.jpg" alt="" loading="lazy"><div><b>Barra de snacks</b><span>Varias barras combinables, toppings con límite de "elige 10".</span><br><u>Ver ejemplo →</u></div></a>
-    <a class="ej" href="/ejemplo-taquiza/"><img src="/ejemplo-taquiza/compartir.jpg" alt="" loading="lazy"><div><b>Taquiza</b><span>Paquetes de 4, 6 u 8 guisados, aguas frescas y extras.</span><br><u>Ver ejemplo →</u></div></a>
-    <a class="ej" href="/ejemplo-banquete/"><img src="/ejemplo-banquete/compartir.jpg" alt="" loading="lazy"><div><b>Banquete</b><span>Menús de 3 y 4 tiempos: un platillo por tiempo.</span><br><u>Ver ejemplo →</u></div></a>
-  </div>
-</section>
 
 <section class="wrap">
   <span class="etq">Qué incluye</span>
@@ -235,16 +224,16 @@ document.querySelectorAll(".js-wa").forEach(function (a) { a.href = "https://wa.
 
 // Demo de la portada
 var DEMOS = {
-  snacks:  { n: "La Chispa", link: "/ejemplo-snacks/", multi: true, inv: 60, ops: [["Barra de Snacks", "Vasos con fruta, gomitas y botanas", 85], ["Mini Hotcakes", "Hechos al momento", 80], ["Barra de Esquites", "Con chilito y limón", 70]] },
-  taquiza: { n: "Taquizas El Fogón", link: "/ejemplo-taquiza/", multi: false, inv: 80, ops: [["Taquiza Clásica", "4 guisados y 1 agua", 150], ["Taquiza Especial", "6 guisados y 2 aguas", 185], ["Taquiza Fiesta", "8 guisados, consomé y postre", 230]] },
-  banquete:{ n: "Banquetes Jacarandas", link: "/ejemplo-banquete/", multi: false, inv: 100, ops: [["Menú 3 tiempos", "Entrada, fuerte y postre", 320], ["Menú 4 tiempos", "Crema, entrada, fuerte y postre", 410]] }
+  snacks:  { n: "La Chispa", multi: true, inv: 60, ops: [["Barra de Snacks", "Vasos con fruta, gomitas y botanas", 85], ["Mini Hotcakes", "Hechos al momento", 80], ["Barra de Esquites", "Con chilito y limón", 70]] },
+  taquiza: { n: "Taquizas El Fogón", multi: false, inv: 80, ops: [["Taquiza Clásica", "4 guisados y 1 agua", 150], ["Taquiza Especial", "6 guisados y 2 aguas", 185], ["Taquiza Fiesta", "8 guisados, consomé y postre", 230]] },
+  banquete:{ n: "Banquetes Jacarandas", multi: false, inv: 100, ops: [["Menú 3 tiempos", "Entrada, fuerte y postre", 320], ["Menú 4 tiempos", "Crema, entrada, fuerte y postre", 410]] }
 };
 var g = "snacks", sel = [0], inv = 60;
 function $(id) { return document.getElementById(id); }
 function pesos(n) { return "$" + Math.round(n).toLocaleString("es-MX"); }
 function pinta() {
   var d = DEMOS[g];
-  $("dn").textContent = d.n; $("dlink").href = d.link; $("di").textContent = inv;
+  $("dn").textContent = d.n; $("di").textContent = inv;
   $("dop").innerHTML = d.ops.map(function (o, i) {
     return '<button data-i="' + i + '" aria-pressed="' + (sel.indexOf(i) > -1) + '"><span>' + o[0] + '<br><small>' + o[1] + '</small></span><span>' + pesos(o[2]) + ' p/p</span></button>';
   }).join("");
